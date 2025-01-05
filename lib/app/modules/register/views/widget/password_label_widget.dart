@@ -8,7 +8,6 @@ class PasswordLabelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 34,
       height: 15,
       margin: const EdgeInsets.only(left: 20, top: 263),
       child: const Text(

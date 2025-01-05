@@ -6,40 +6,54 @@ import '../../controllers/home_controller.dart';
 
 class NewsWidget extends StatelessWidget {
   final homeController = Get.find<HomeController>();
-  // final Widget newsItem;
+
   NewsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(top: 480),
-        child: Column(
-          children: [
-            Text('News'),
-            Obx(() {
-              if (homeController.isLoading.value) {
-// Display a progress indicator while loading
-                return Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        Theme.of(context).colorScheme.secondary),
-                  ),
-                );
-              } else {
-// Display the list of articles
-                return Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: homeController.articles.length,
-                    itemBuilder: (context, index) {
-                      var article = homeController.articles[index];
-                      return NewsItemWidget(article: article);
-                    },
-                  ),
-                );
-              }
-            }),
-          ],
-        ));
+      margin: const EdgeInsets.only(top: 480), // Menyesuaikan margin agar tidak tertutup oleh widget lain
+      child: Column(
+        children: [
+          // Judul News
+          Text(
+            'News',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          SizedBox(height: 10),
+
+          // Menggunakan Obx untuk memantau perubahan pada nilai isLoading
+          Obx(() {
+            if (homeController.isLoading.value) {
+              // Menampilkan indikator loading saat data sedang dimuat
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      Theme.of(context).colorScheme.secondary),
+                ),
+              );
+            } else {
+              // Menampilkan daftar artikel setelah selesai dimuat
+              return Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: homeController.articles.length, // Jumlah artikel
+                  itemBuilder: (context, index) {
+                    // Menggunakan widget NewsItemWidget untuk menampilkan tiap artikel
+                    return NewsItemWidget(
+                      article: homeController.articles[index],
+                    );
+                  },
+                ),
+              );
+            }
+          }),
+        ],
+      ),
+    );
   }
 }

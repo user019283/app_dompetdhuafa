@@ -2,8 +2,10 @@ import 'package:dompetdhuafaconceptmodul4/app/modules/signin/controllers/signin_
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app/handler/notification_handler.dart';
+import 'app/modules/home/controllers/home_controller.dart';
 import 'app/routes/app_pages.dart';
 import 'firebase_options.dart';
 
@@ -19,6 +21,8 @@ void main() async {
   final SigninController controller = Get.put(SigninController());
   await FirebaseMessagingHandler().initPushNotification();
 
+  // Initialize Get Storage
+  await GetStorage.init();
   runApp(
     GetMaterialApp(
       title: "Application",
@@ -27,4 +31,5 @@ void main() async {
       debugShowCheckedModeBanner: false,
     ),
   );
+  Get.put(HomeController());
 }

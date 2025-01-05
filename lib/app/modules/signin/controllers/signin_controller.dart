@@ -19,7 +19,7 @@ class SigninController extends GetxController {
     checkLoginStatus();
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -33,7 +33,7 @@ class SigninController extends GetxController {
     );
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance.signInWithCredential(credential);
-    Get.to(const HomeView());
+    Get.to(HomeView());
   }
 
   Future<void> loginUser(String email, String password) async {

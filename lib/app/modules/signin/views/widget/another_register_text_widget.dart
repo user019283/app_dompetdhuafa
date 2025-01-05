@@ -10,43 +10,34 @@ class AnotherRegisterTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 219,
-      // height: 15,
-      margin: const EdgeInsets.only(top: 718, left: 100),
-      child: Stack(
+      margin: const EdgeInsets.only(top: 718),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            margin: const EdgeInsets.only(top: 17),
+          const Text(
+            'Belum punya akun? ',
+            style: TextStyle(
+                fontFamily: 'Lexend',
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff242B42)),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.to(const RegisterView());
+            },
             child: const Text(
-              'Belum punya akun?',
+              ' DAFTAR DULU YUK',
               style: TextStyle(
                   fontFamily: 'Lexend',
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xff242B42)),
+                  color: Colors.white),
+            ),
+            style: TextButton.styleFrom(
+              backgroundColor: const Color(0xff00A44F),
             ),
           ),
-          Container(
-            // height: 100,
-            margin: const EdgeInsets.only(left: 100, bottom: 100),
-            child: TextButton(
-
-              onPressed: () {
-                Get.to(const RegisterView());
-              },
-              child: const Text(
-                ' Daftar dulu yuk',
-                style: TextStyle(
-                    fontFamily: 'Lexend',
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
-              ),
-              style: TextButton.styleFrom(
-                backgroundColor: const Color(0xff00A44F),
-              ),
-            ),
-          )
         ],
       ),
     );

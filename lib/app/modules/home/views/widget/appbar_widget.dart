@@ -1,3 +1,4 @@
+import 'package:dompetdhuafaconceptmodul4/app/modules/home/views/widget/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,10 +14,19 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xffFFFFFF),
-      title: Image.asset(
-        'assets/images/logo.png',
-        height: 31,
-        width: 77,
+      title: GestureDetector(
+        onTap: () {
+          // Navigate to ProfileView when the image is clicked
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProfileView()),
+          );
+        },
+        child: Image.asset(
+          'assets/images/logo.png',
+          height: 31,
+          width: 77,
+        ),
       ),
       actions: [
         Container(

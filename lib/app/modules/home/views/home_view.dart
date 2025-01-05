@@ -10,7 +10,8 @@ import 'widget/news.dart';
 import 'widget/wallet_card_widget.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,31 @@ class HomeView extends GetView<HomeController> {
           FloatingButtonWidget(),
         ],
       ),
-      // bottomNavigationBar: const BottomNavigationWidget(),
+
+
+      // Menampilkan Snackbar jika status koneksi berubah
+      // floatingActionButton: Obx(() {
+      //   if (controller.isConnected.value) {
+      //     return FloatingActionButton(
+      //       onPressed: () {},
+      //       child: const Icon(Icons.check),
+      //     );
+      //   } else {
+      //     return FloatingActionButton(
+      //       onPressed: () {
+      //         Get.snackbar(
+      //           "Tidak ada koneksi",
+      //           "Periksa koneksi internet Anda",
+      //           snackPosition: SnackPosition.BOTTOM,
+      //           backgroundColor: Colors.red,
+      //           colorText: Colors.white,
+      //         );
+      //       },
+      //       child: const Icon(Icons.error),
+      //     );
+      //   }
+      // }),
     );
   }
+
 }

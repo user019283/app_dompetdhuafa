@@ -26,7 +26,7 @@ class AppleButtonWidget extends StatelessWidget {
               'assets/svgs/apple.svg',
             ),
             const Text(
-              'Masuk Dengan Apple',
+              ' Masuk Dengan Apple',
               style: TextStyle(
                   fontFamily: 'Lexend',
                   fontSize: 14,

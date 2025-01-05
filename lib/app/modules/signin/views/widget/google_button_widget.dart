@@ -1,8 +1,10 @@
 import 'package:dompetdhuafaconceptmodul4/app/modules/signin/views/signin_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+// import '../../../home/views/home_view.dart';
 import '../../../home/views/home_view.dart';
 import '../../controllers/signin_controller.dart';
 
@@ -24,14 +26,14 @@ class GoogleButtonWidget extends StatelessWidget {
         ),
         onPressed: () async {
           try {
-            // final UserCredential credential =
-            //     // await controller.signInWithGoogle();
-            // var user = credential.user;
-            // if (user != null) {
-            //   Get.to(const HomeView());
-            // } else {
-            //   Get.to(const SigninView());
-            // }
+            final UserCredential? credential =
+                await controller.signInWithGoogle();
+            var user = credential?.user;
+            if (user != null) {
+              Get.to(HomeView());
+            } else {
+              Get.to(const SigninView());
+            }
           } catch (e) {
             if (e is FirebaseAuthException) {
               Get.to(const SigninView());
@@ -41,16 +43,16 @@ class GoogleButtonWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // SvgPicture.asset(
-            //   'assets/svgs/google.svg',
-            // ),
+            SvgPicture.asset(
+              'assets/svgs/google.svg',
+            ),
             Image.asset(
               'assets/images/google.png',
               height: 24,
               width: 24,
             ),
             const Text(
-              'Masuk Dengan Google',
+              ' Masuk Dengan Google',
               style: TextStyle(
                   fontFamily: 'Lexend',
                   fontSize: 14,

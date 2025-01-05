@@ -27,7 +27,7 @@ class FbButtonWidget extends StatelessWidget {
               width: 24,
             ),
             const Text(
-              'Masuk Dengan Facebook',
+              ' Masuk Dengan Facebook',
               style: TextStyle(
                   fontFamily: 'Lexend',
                   fontSize: 14,

@@ -8,6 +8,10 @@ abstract class Routes {
   static const IMAGEPICKER = _Paths.IMAGEPICKER;
   static const WEBVIEWNEWS = _Paths.WEBVIEWNEWS;
   static const REGISTER = _Paths.REGISTER;
+  static const CAMERA = _Paths.CAMERA;
+  static const SPEAKER = _Paths.SPEAKER;
+  static const MIC = _Paths.MIC;
+  static const MAPS = _Paths.MAPS;
 }
 
 abstract class _Paths {
@@ -17,4 +21,8 @@ abstract class _Paths {
   static const IMAGEPICKER = '/imagepicker';
   static const WEBVIEWNEWS = '/webviewnews';
   static const REGISTER = '/register';
+  static const CAMERA = '/camera';
+  static const SPEAKER = '/speaker';
+  static const MIC = '/mic';
+  static const MAPS = '/maps';
 }
